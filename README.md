@@ -71,6 +71,10 @@ Then set:
 vim.cmd.colorscheme("matugen-nvim")
 ```
 
+### Versioning
+
+This project uses 0versioning: `0.x.y`.
+
 ### Installation (vim-plug / pack)
 
 `vim-plug`:

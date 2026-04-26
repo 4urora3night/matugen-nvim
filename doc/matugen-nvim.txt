@@ -49,6 +49,7 @@ NOTES                                                 *matugen-nvim-notes*
 
 - This plugin expects a matugen JSON template output.
 - It keeps `termguicolors` enabled.
+- Versioning uses 0.x.y.
 
 =============================================================================
 EOF
