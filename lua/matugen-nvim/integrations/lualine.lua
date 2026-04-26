@@ -1,3 +1,5 @@
+local config = require("matugen-nvim.config")
+
 local M = {}
 
 local function build_theme(c)
@@ -35,17 +37,10 @@ local function build_theme(c)
   }
 end
 
-function M.apply(c)
-  local ok, lualine = pcall(require, "lualine")
-  if not ok then
-    return
-  end
-
-  lualine.setup({
-    options = {
-      theme = build_theme(c),
-    },
-  })
+function M.get()
+  local opts = config.get()
+  local palette = require("matugen-nvim.palette").load(opts.palette_path)
+  return build_theme(palette)
 end
 
 return M
