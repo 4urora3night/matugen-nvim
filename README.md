@@ -59,6 +59,7 @@ return {
       integrations = {
         lualine = true,
         snacks = true,
+        blink = true,
       },
     },
   },
@@ -69,6 +70,20 @@ Then set:
 
 ```lua
 vim.cmd.colorscheme("matugen-nvim")
+```
+
+Lualine (preserves your existing options):
+
+```lua
+return {
+  "nvim-lualine/lualine.nvim",
+  opts = function(_, opts)
+    opts.options = opts.options or {}
+    opts.options.theme = require("matugen-nvim.integrations.lualine").get()
+    opts.options.section_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = "", right = "" }
+  end,
+}
 ```
 
 ### Versioning

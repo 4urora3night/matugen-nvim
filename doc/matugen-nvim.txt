@@ -12,6 +12,11 @@ Install with lazy.nvim, then set:
   vim.cmd.colorscheme("matugen-nvim")
 <
 
+Lualine theme (preserves your options):
+>
+  opts.options.theme = require("matugen-nvim.integrations.lualine").get()
+<
+
 With vim-plug, add:
 >
   Plug 'yourname/matugen-nvim'
