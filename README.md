@@ -86,6 +86,8 @@ return {
 }
 ```
 
+Lualine will refresh its theme automatically on palette changes.
+
 ### Versioning
 
 This project uses 0versioning: `0.x.y`.

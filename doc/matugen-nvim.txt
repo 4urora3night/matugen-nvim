@@ -17,6 +17,8 @@ Lualine theme (preserves your options):
   opts.options.theme = require("matugen-nvim.integrations.lualine").get()
 <
 
+The lualine theme refreshes automatically on palette changes.
+
 With vim-plug, add:
 >
   Plug 'yourname/matugen-nvim'
