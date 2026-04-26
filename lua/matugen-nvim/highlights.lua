@@ -31,6 +31,8 @@ function M.apply(c, opts)
   local selection = pick(c.primary_container, blend_hex(c.primary, c.background, 0.25))
   local line_bg = pick(c.secondary_container, blend_hex(c.surface, c.background, 0.3))
   local comment_fg = pick(c.base03, blend_hex(c.on_surface_variant, c.background, 0.7))
+  local cursor_bg = pick(c.base05, c.on_background)
+  local cursor_fg = pick(c.base00, c.background)
   local syntax = {
     comment = pick(c.base03, c.on_surface_variant),
     keyword = pick(c.base0e, c.primary),
@@ -49,6 +51,9 @@ function M.apply(c, opts)
 
   set("Normal", { fg = c.on_background, bg = bg_main })
   set("NormalNC", { fg = c.on_surface, bg = bg_main })
+  set("Cursor", { fg = cursor_fg, bg = cursor_bg })
+  set("TermCursor", { fg = cursor_fg, bg = cursor_bg })
+  set("TermCursorNC", { fg = cursor_fg, bg = cursor_bg })
   set("NormalFloat", { fg = c.on_surface, bg = float_bg })
   set("FloatBorder", { fg = c.outline, bg = float_bg })
   set("FloatTitle", { fg = c.primary, bg = float_bg, bold = true })
