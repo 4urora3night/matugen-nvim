@@ -18,7 +18,7 @@ Add a JSON template and output path in your matugen config:
 ```toml
 [templates.nvim]
 input_path  = "~/.config/matugen/templates/nvim.json"
-output_path = "~/.cache/matugen/nvim-colors.json"
+output_path = "~/.config/nvim/colors/nvim-colors.json"
 ```
 
 Example template (single file with MD3 + HSL-derived accents):
@@ -29,11 +29,11 @@ Example template (single file with MD3 + HSL-derived accents):
   "on_primary": "{{colors.on_primary.default.hex}}",
   "secondary": "{{colors.secondary.default.hex}}",
   "on_secondary": "{{colors.on_secondary.default.hex}}",
-  "surface": "{{colors.surface.default.hex}}",
+  "surface": "{{colors.surface.default.hex | set_lightness: 15}}",
   "on_surface": "{{colors.on_surface.default.hex}}",
   "surface_variant": "{{colors.surface_variant.default.hex}}",
   "on_surface_variant": "{{colors.on_surface_variant.default.hex}}",
-  "background": "{{colors.background.default.hex}}",
+  "background": "{{colors.background.default.hex | set_lightness: 15}}",
   "on_background": "{{colors.on_background.default.hex}}",
   "error": "{{colors.error.default.hex}}",
   "on_error": "{{colors.on_error.default.hex}}",
@@ -41,13 +41,13 @@ Example template (single file with MD3 + HSL-derived accents):
   "outline": "{{colors.outline.default.hex}}",
   "outline_variant": "{{colors.outline_variant.default.hex}}",
 
-  "accent_red": "{{ colors.primary.default.hex | hue: 0 | saturate: 15 | lighten: 5 }}",
-  "accent_orange": "{{ colors.primary.default.hex | hue: 30 | saturate: 15 | lighten: 8 }}",
-  "accent_yellow": "{{ colors.primary.default.hex | hue: 60 | saturate: 10 | lighten: 12 }}",
-  "accent_green": "{{ colors.primary.default.hex | hue: 120 | saturate: 10 | lighten: 6 }}",
-  "accent_cyan": "{{ colors.primary.default.hex | hue: 180 | saturate: 10 | lighten: 4 }}",
-  "accent_blue": "{{ colors.primary.default.hex | hue: 220 | saturate: 10 | lighten: 2 }}",
-  "accent_magenta": "{{ colors.primary.default.hex | hue: 300 | saturate: 15 | lighten: 4 }}"
+  "accent_red": "{{colors.error.default.hex}}",
+  "accent_orange": "{{ colors.primary_container.default.hex}}",
+  "accent_yellow": "{{ colors.primary.default.hex }}",
+  "accent_green": "{{ colors.primary.default.hex }}",
+  "accent_cyan": "{{ colors.secondary.default.hex }}",
+  "accent_blue": "{{ colors.primary.default.hex}}",
+  "accent_magenta": "{{ colors.on_surface.default.hex}}"
 }
 ```
 
@@ -60,7 +60,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      palette_path = "~/.cache/matugen/nvim-colors.json",
+      palette_path = "~/.config/nvim/colors/nvim-colors.json",
       transparent = true,
       watch = true,
       float_bg_blend = 0.6,
